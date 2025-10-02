@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_10_01_043558) do
+ActiveRecord::Schema[7.1].define(version: 2025_10_01_153221) do
+  create_table "sessions", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "nickname", default: "", null: false
     t.string "email", default: "", null: false
@@ -24,4 +33,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_01_043558) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "sessions", "users"
 end
