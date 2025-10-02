@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   root to: "records#index"
 
   resources :sessions, only: [:create, :update]
-  resources :records, only: [:index]
+  resources :records, only: [:index, :show]
+
+  resources :actions, only: [:create, :update, :edit]
 end

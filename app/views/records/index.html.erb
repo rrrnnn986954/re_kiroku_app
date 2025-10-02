@@ -7,13 +7,5 @@
   <%= link_to "ログイン", new_user_session_path%>
 <% end %>
 
-<%# if notice %>
-  <p class="notice"><%= notice %></p>
-<%# end %>
-
-<% if @current_session.present? %>
-  <p>セッション中: 開始時刻 <%= @current_session.started_at.strftime("%H:%M") %></p>
-  <%= button_to "セッション終了", session_path(@current_session), method: :patch, class: "btn btn-danger" %>
-<% else %>
-  <%= button_to "セッション開始", sessions_path, method: :post, class: "btn btn-primary" %>
-<% end %>
+<%= button_to "セッション開始", sessions_path, method: :post %>
+<%#= link_to "グラフを見る", charts_path %>
