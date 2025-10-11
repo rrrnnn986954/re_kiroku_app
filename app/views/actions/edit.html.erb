@@ -1,0 +1,9 @@
+<%= form_with model: @action, url: action_path(@action), method: :patch do |f| %>
+  <%= f.label :category %>
+  <%= f.select :category, ["洗面", "学習", "昼食", "夕食", "休憩"] %>
+
+  <%= f.label :memo %>
+  <%= f.text_area :memo %>
+
+  <%= f.submit "完了" %>
+<% end %>
